@@ -1,0 +1,143 @@
+/* Restablecemos los márgenes por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fce4ec; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    padding: 20px;
+    position: relative; /* Importante para el fondo animado */
+    overflow-x: hidden; /* Evita barras de desplazamiento horizontales */
+}
+
+/* --- ESTILOS DE LA CARTA --- */
+.carta-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(216, 27, 96, 0.15);
+    max-width: 600px;
+    text-align: center;
+    border-top: 8px solid #f06292;
+    position: relative;
+    z-index: 10; /* Mantiene la carta por encima de los corazones */
+}
+
+.corazon {
+    font-size: 50px;
+    animation: latido 1.5s infinite ease-in-out;
+    margin-bottom: 15px;
+}
+
+h1 {
+    color: #d81b60;
+    font-size: 28px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.fecha {
+    font-style: italic;
+    color: #888;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.contenido-carta {
+    text-align: left;
+    line-height: 1.8;
+    font-size: 18px;
+    color: #444;
+}
+
+.contenido-carta p {
+    margin-bottom: 20px;
+}
+
+.firma {
+    font-weight: 600;
+    color: #d81b60;
+    text-align: right;
+    font-size: 22px;
+    margin-top: 40px;
+    font-style: italic;
+}
+
+@keyframes latido {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* --- ANIMACIÓN DE CORAZONES FLOTANTES --- */
+.area-corazones {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Para que no estorben al leer o hacer clic */
+    z-index: 1; /* Detrás de la carta */
+}
+
+.corazon-flotante {
+    position: absolute;
+    bottom: -100px;
+    width: 20px;
+    height: 20px;
+    background-color: #ff80ab;
+    transform: rotate(-45deg);
+    animation: flotarHaciaArriba 10s infinite linear;
+    opacity: 0.6;
+}
+
+/* Dibujando el corazón con CSS */
+.corazon-flotante::before,
+.corazon-flotante::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff80ab;
+    border-radius: 50%;
+}
+
+.corazon-flotante::before {
+    top: -10px;
+    left: 0;
+}
+
+.corazon-flotante::after {
+    top: 0;
+    left: 10px;
+}
+
+/* Fotogramas de la animación */
+@keyframes flotarHaciaArriba {
+    0% {
+        transform: translateY(0) rotate(-45deg) scale(0.8);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-120vh) rotate(-45deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Posiciones, tamaños y tiempos aleatorios para cada corazón */
+.corazon-flotante:nth-child(1) { left: 10%; animation-duration: 8s; animation-delay: 0s; }
+.corazon-flotante:nth-child(2) { left: 25%; animation-duration: 12s; animation-delay: 2s; transform: scale(0.6) rotate(-45deg); }
+.corazon-flotante:nth-child(3) { left: 40%; animation-duration: 9s; animation-delay: 4s; transform: scale(1) rotate(-45deg); }
+.corazon-flotante:nth-child(4) { left: 55%; animation-duration: 15s; animation-delay: 1s; transform: scale(0.7) rotate(-45deg); }
+.corazon-flotante:nth-child(5) { left: 70%; animation-duration: 11s; animation-delay: 3s; transform: scale(1.1) rotate(-45deg); }
+.corazon-flotante:nth-child(6) { left: 85%; animation-duration: 13s; animation-delay: 5s; transform: scale(0.5) rotate(-45deg); }
+.corazon-flotante:nth-child(7) { left: 95%; animation-duration: 10s; animation-delay: 0.5s; transform: scale(0.9) rotate(-45deg); }
+.corazon-flotante:nth-child(8) { left: 50%; animation-duration: 14s; animation-delay: 6s; transform: scale(1.3) rotate(-45deg); }
