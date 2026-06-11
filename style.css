@@ -1,0 +1,45 @@
+body{
+    background-color: #fd80cb;
+    font-family: Times New Roman, Times, serif;
+    padding: 0;
+}
+.padre{
+    background-color: #fff;
+    width: 500px;
+    height: auto;
+    margin: 100px auto;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.padre h1{
+    text-align: center;
+    color: #fd80cb;
+}
+.padre p{
+    text-align: center;
+    color: #fd80cb;
+}
+.padre p span{
+    color: #fd80cb;
+    font-size: 20px;
+    cursor: pointer;
+}
+.padre p span:hover{
+    color: #5a2243;
+    font-size: 20px;
+    cursor: pointer;
+}
+button{
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #fd80cb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
